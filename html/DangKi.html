@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký | ShoeChin - Giày dép nữ cao cấp</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('../images//chung-ta-la-nhung-chu-meo-vui-nhon-1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+        
+        .form-control:focus {
+            border-color: #ff4081;
+            box-shadow: 0 0 0 0.25rem rgba(255, 64, 129, 0.25);
+        }
+        
+        .btn-primary {
+            background-color: #ff4081;
+            border-color: #ff4081;
+        }
+        
+        .btn-primary:hover {
+            background-color: #f50057;
+            border-color: #f50057;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: #ff4081;
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+        }
+        
+        .input-group-text {
+            background-color: transparent;
+            border-right: none;
+        }
+        
+        .form-control {
+            border-left: none;
+        }
+        
+        .error-feedback {
+            color: #dc3545;
+            font-size: 80%;
+            margin-top: 0.25rem;
+        }
+
+        .benefits-list {
+            margin-top: 20px;
+        }
+
+        .benefits-list i {
+            color: #ff4081;
+        }
+
+        .nav-link {
+            color: #333;
+        }
+
+        .nav-link:hover {
+            color: #ff4081;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-pink" href="../html/TrangChu.html">
+                <i class="fas fa-shoe-prints me-2"></i>ShoeChin
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/TrangChuChinh.html"><i class="fas fa-home me-1"></i>Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/DangNhap.html"><i class="fas fa-sign-in-alt me-1"></i>Đăng nhập</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center py-4">
+                        <h3 class="mb-0">Đăng ký thành viên</h3>
+                        <p class="mb-0">Tham gia cùng ShoeChin để nhận nhiều ưu đãi hấp dẫn</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="registrationForm" class="needs-validation" novalidate>
+
+                            <div class="mb-3">
+                                <label class="form-label">Họ và tên</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="error-feedback" id="nameError"></div>
+                            </div>
+
+                            <!-- Số điện thoại -->
+                            <div class="mb-3">
+                                <label class="form-label">Số điện thoại</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="error-feedback" id="phoneError"></div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="error-feedback" id="emailError"></div>
+                            </div>
+
+                            <!-- Mật khẩu -->
+                            <div class="mb-4">
+                                <label class="form-label">Mật khẩu</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-feedback" id="passwordError"></div>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">
+                                <i class="fas fa-user-plus me-2"></i>Đăng ký
+                            </button>
+
+                            <div class="text-center">
+                                <span>Đã có tài khoản? </span>
+                                <a href="../html/DangNhap.html" class="text-decoration-none">Đăng nhập ngay</a>
+                            </div>
+
+                            <!-- Benefits list -->
+                            <div class="benefits-list">
+                                <h6 class="fw-bold">Quyền lợi thành viên:</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle me-2"></i>Nhận ngay voucher 100k cho đơn hàng đầu tiên</li>
+                                    <li><i class="fas fa-check-circle me-2"></i>Tích điểm đổi quà với mỗi đơn hàng</li>
+                                    <li><i class="fas fa-check-circle me-2"></i>Được thông báo sớm về các chương trình khuyến mãi</li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const togglePassword = document.getElementById('togglePassword');
+            const password = document.getElementById('password');
+
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            // Form validation
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Reset error messages
+                clearErrors();
+                
+                let isValid = true;
+                
+                // Validate name
+                const name = document.getElementById('name').value.trim();
+                if (name.length < 2) {
+                    showError('nameError', 'Họ tên phải có ít nhất 2 ký tự');
+                    isValid = false;
+                }
+
+                // Validate phone
+                const phone = document.getElementById('phone').value.trim();
+                if (!phone.match(/^(0|\+84)[3|5|7|8|9][0-9]{8}$/)) {
+                    showError('phoneError', 'Số điện thoại không hợp lệ');
+                    isValid = false;
+                }
+
+                // Validate email
+                const email = document.getElementById('email').value.trim();
+                if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                    showError('emailError', 'Email không hợp lệ');
+                    isValid = false;
+                }
+
+                // Validate password
+                const passwordValue = password.value;
+                if (passwordValue.length < 6) {
+                    showError('passwordError', 'Mật khẩu phải có ít nhất 6 ký tự');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Here you would typically send the form data to your server
+                    alert('Đăng ký thành công!');
+                    form.reset();
+                }
+            });
+
+            function showError(elementId, message) {
+                document.getElementById(elementId).textContent = message;
+            }
+
+            function clearErrors() {
+                const errorElements = document.getElementsByClassName('error-feedback');
+                for (let element of errorElements) {
+                    element.textContent = '';
+                }
+            }
+
+            // Add custom validation styles
+            const inputs = form.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        this.classList.add('is-valid');
+                        this.classList.remove('is-invalid');
+                    } else {
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

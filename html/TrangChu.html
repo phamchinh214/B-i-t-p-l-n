@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DILY - Giày Dép Phụ Nữ</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+         :root {
+            --primary: #ff4d6d;
+            --secondary: #2b2d42;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff3357;
+            border-color: #ff3357;
+        }
+        
+        .navbar-brand img {
+            height: 100px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(244, 165, 192, 0.6), rgba(246, 23, 112, 0.6)), url('/api/placeholder/1920/600');
+            background-size: cover;
+            background-position: center;
+            padding: 70px 0;
+            color: white;
+        }
+        
+        .search-form {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .search-form .btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+        
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .category-card img {
+            transition: transform 0.3s;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+        }
+        
+        .product-card {
+            border: none;
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .features-section i {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .footer {
+            background: var(--secondary);
+        }
+        
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-light py-2">
+        <div class="container">
+            <div class="d-flex justify-content-end">
+                <a href="DangNhap.html" class="text-decoration-none text-dark me-3">Đăng nhập</a>
+                <a href="DangKi.html" class="text-decoration-none text-dark">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="TrangChu.html">
+                <img src="../images/32d35db38f51f3d20259a452f186e8b8.jpg" alt="ShoeChin">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="TrangChu.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sanpham.html">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/Gioithieu.html">Giới thiệu</a>
+                    </li>
+                </ul>
+
+                <form class="search-form d-flex me-3">
+                    <input class="form-control" type="search" placeholder="Tìm kiếm sản phẩm..." style="margin-right: 30px;">
+                    <button class="btn btn-primary" type="submit" style="margin-top: -6px;">
+                        <i class='bx bx-search'></i>
+                    </button>
+                </form>
+
+                <div class="d-flex align-items-center">
+                    <a href="giohang.html" class="btn btn-outline-primary position-relative me-2">
+                        <i class='bx bx-cart'></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                        </span>
+                    </a>
+                    <a href="DangNhap.html" class="btn btn-outline-primary">
+                        <i class='bx bx-user'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Từng bước chân - Một phong cách</h1>
+            <p class="lead mb-4">Khám phá bộ sưu tập giày dép cao cấp dành riêng cho phái đẹp</p>
+            <a href="../html/sanpham.html" class="btn btn-primary btn-lg">Xem Bộ Sưu Tập</a>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Danh Mục Nổi Bật</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <a href="sanpham.html">
+                            <img src="../images/banner1.png" alt="Giày cao gót" class="img-fluid"></a>
+                        <div class="category-overlay">
+                            <h3>Giày Cao Gót</h3>
+                            <p class="mb-0">Sang trọng & Đẳng cấp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <a href="sanpham.html">
+                            <img src="../images/banner2.png" alt="Giày búp bê" class="img-fluid"></a>
+                        <div class="category-overlay">
+                            <h3>Giày Búp Bê</h3>
+                            <p class="mb-0">Năng động & Thoải mái</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <a href="sanpham.html">
+                            <img src="../images/banner3.png" alt="Sandal" class="img-fluid"></a>
+                        <div class="category-overlay">
+                            <h3>Sandal</h3>
+                            <p class="mb-0">Nhẹ nhàng & Thanh lịch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Sản Phẩm Nổi Bật</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <a href="sanpham.html">
+                            <img src="../images/caogot4.png" class="card-img-top product-img" alt="Giày cao gót"></a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Giày Cao Gót Nữ DILY Mũi Vuông </h5>
+                            <p class="card-text fw-bold text-primary">319.000₫</p>
+                            <a href="giohang.html" class="btn btn-primary w-100">
+                                <i class='bx bx-cart-alt me-2'></i>Thêm vào giỏ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <a href="sanpham.html">
+                            <img src="../images/anhdep4.png" class="card-img-top product-img" alt="Giày búp bê"></a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Giày Búp Bê SlingBack DILY Mũi Nhọn</h5>
+                            <p class="card-text fw-bold text-primary">333.000₫</p>
+                            <a href="giohang.html" class="btn btn-primary w-100">
+                                <i class='bx bx-cart-alt me-2'></i>Thêm vào giỏ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <a href="sanpham.html">
+                            <img src="../images/sandal2.png" class="card-img-top product-img" alt="Giày búp bê"></a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Giày Sandal Nữ DILY Thời Trang</h5>
+                            <p class="card-text fw-bold text-primary">299.000₫</p>
+                            <a href="giohang.html" class="btn btn-primary w-100">
+                                <i class='bx bx-cart-alt me-2'></i>Thêm vào giỏ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <a href="sanpham.html">
+                            <img src="../images/anhdep1.png" class="card-img-top product-img" alt="Sandal"></a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Giày Búp Bê Mũi Tròn Thời Trang</h5>
+                            <p class="card-text fw-bold text-primary">319.000₫</p>
+                            <a href="giohang.html" class="btn btn-primary w-100">
+                                <i class='bx bx-cart-alt me-2'></i>Thêm vào giỏ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features-section py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <i class='bx bx-package mb-3'></i>
+                    <h4>Miễn phí vận chuyển</h4>
+                    <p class="text-muted">Cho đơn hàng từ 1 triệu</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <i class='bx bx-reset mb-3'></i>
+                    <h4>Đổi trả 30 ngày</h4>
+                    <p class="text-muted">Dễ dàng & nhanh chóng</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <i class='bx bx-check-shield mb-3'></i>
+                    <h4>Bảo hành 1 năm</h4>
+                    <p class="text-muted">Cho mọi sản phẩm</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <i class='bx bx-support mb-3'></i>
+                    <h4>Hỗ trợ 24/7</h4>
+                    <p class="text-muted">Tư vấn nhiệt tình</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Về ShoeChin</h5>
+                    <p class="mb-3">Chuyên cung cấp các mẫu giày dép thời trang chất lượng cao cho phụ nữ.</p>
+                    <div class="social-links">
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Danh mục</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="sanpham.html" class="text-light text-decoration-none mb-2 d-block">Giày Cao Gót</a></li>
+                        <li><a href="sanpham.html" class="text-light text-decoration-none mb-2 d-block">Giày Búp Bê</a></li>
+                        <li><a href="sanpham.html" class="text-light text-decoration-none mb-2 d-block">Giày Sandal</a></li>
+                        <li><a href="sanpham.html" class="text-light text-decoration-none mb-2 d-block">Dép & Guốc</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Hỗ trợ khách hàng</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-block">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-block">Chính sách đổi trả</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-block">Chính sách bảo hành</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-block">Phương thức thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Liên hệ</h5>
+                    <p>Địa chỉ: Tân Biên, Biên Hòa, Đồng Nai</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

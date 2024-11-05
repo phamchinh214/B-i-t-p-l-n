@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng - Giày Dép Nữ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f9fa;
+        }
+        
+        .head_bottom {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            background-color: white;
+        }
+        
+        .container-fluid {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            margin: 0;
+            width: 50px;
+            height: auto;
+        }
+        
+        .menu {
+            background-color: white;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar {
+            padding: 0.5rem 0;
+        }
+        
+        .navbar-nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0d6efd;
+        }
+        
+        .cart-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .quantity-input {
+            width: 100px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            padding: 0.375rem 0.75rem;
+        }
+        
+        .cart-summary {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 4rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .empty-cart i {
+            font-size: 5rem;
+            color: #dee2e6;
+            margin-bottom: 1rem;
+        }
+        
+        main.container {
+            max-width: 1600px;
+            width: 95%;
+            flex: 1;
+            padding: 2rem 0;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background-color: white;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .remove-item {
+            color: #dc3545;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 0.5rem;
+        }
+        
+        .remove-item:hover {
+            color: #c82333;
+        }
+        
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+        }
+        
+        .btn-outline-secondary {
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+        }
+        
+        .cart-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .search-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .product-title {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-details {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #dc3545;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 992px) {
+            .container-fluid {
+                padding: 0 1rem;
+            }
+            main.container {
+                width: 100%;
+                padding: 1rem;
+            }
+            .cart-summary {
+                margin-top: 2rem;
+            }
+            .navbar-nav {
+                gap: 1rem;
+            }
+            .cart-item img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .head_bottom .row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .logo-container {
+                justify-content: center;
+            }
+            .cart-container {
+                justify-content: center !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nam">
+        <div class="head_bottom">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-12 logo-container">
+                        <a href="TrangChu.html">
+                            <img class="logo" src="../images/32d35db38f51f3d20259a452f186e8b8.jpg" alt="Logo" style="margin-left: 300px; width:100px;">
+                        </a>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <form id="form_search" method="GET" action="" class="search-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm giày dép...">
+                                <button class="btn btn-outline-secondary" type="submit">
+                                <i class='bx bx-search'></i> Tìm kiếm
+                            </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-2 col-md-12 cart-container d-flex justify-content-end">
+                        <div class="cart position-relative">
+                            <a href="giohang.html" class="text-dark">
+                                <span class="icon-cart">
+                                <i class='bx bx-cart-alt fs-4'></i>
+                            </span>
+                                <span class="number-product badge bg-danger position-absolute top-0 start-100 translate-middle" id="gioHang">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="../html/TrangChuChinh.html">Trang chủ</a>
+                            <a class="nav-link" href="../html/sanpham.html">Giày cao gót</a>
+                            <a class="nav-link" href="../html/sanpham.html">Giày Búp Bê</a>
+                            <a class="nav-link" href="../html/sanpham.html">Sandal & Dép</a>
+                            <a class="nav-link" href="#">Khuyến mãi</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <main class="container">
+        <h2 class="mb-4">Giỏ Hàng Của Bạn</h2>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div id="emptyCart" class="empty-cart">
+                    <i class='bx bx-cart'></i>
+                    <h3>Giỏ hàng trống</h3>
+                    <p class="text-muted">Hãy thêm sản phẩm vào giỏ hàng của bạn</p>
+                    <a href="../html/sanpham.html" class="btn btn-primary">Tiếp tục mua sắm</a>
+                </div>
+                <div id="cartItems" class="cart-items" style="display: none;">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart-summary">
+                    <h4 class="mb-4">Tổng Đơn Hàng</h4>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Tạm tính:</span>
+                        <span id="subtotal" class="price">0đ</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Phí vận chuyển:</span>
+                        <span id="shipping" class="price">0đ</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <strong>Tổng cộng:</strong>
+                        <strong id="total" class="price">0đ</strong>
+                    </div>
+                    <div class="mb-4">
+                        <label for="coupon" class="form-label">Mã giảm giá:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="coupon" placeholder="Nhập mã giảm giá">
+                            <button class="btn btn-outline-secondary" type="button">Áp dụng</button>
+                        </div>
+                    </div>
+                    <a href="../html/thanhtoan.html" class="btn btn-primary w-100 mb-3" id="checkoutButton" style="display: none;">
+                    Tiến hành thanh toán
+                </a>
+                    <a href="../html/sanpham.html" class="btn btn-outline-secondary w-100">
+                    Tiếp tục mua sắm
+                </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const products = {
+            1: {
+                id: 1,
+                name: "Giày Cao Gót Mũi Tròn 7cm",
+                price: 319000,
+                image: "../images/anhdep1.png",
+                color: "Nâu",
+                size: "37"
+            },
+            2: {
+                id: 2,
+                name: "Giày búp bê slingback nữ DILY",
+                price: 333000,
+                image: "../images/anhdep4.png",
+                color: "Trắng",
+                size: "36"
+            },
+            3: {
+                id: 3,
+                name: "Giày búp bê nữ DILY mũi nhọn",
+                price: 369000,
+                image: "../images/bupbe3.png",
+                color: "Đen",
+                size: "38"
+            }
+        };
+
+        function formatPrice(price) {
+            return price.toLocaleString('vi-VN') + 'đ';
+        }
+
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const emptyCartMessage = document.getElementById('emptyCart');
+            const checkoutButton = document.getElementById('checkoutButton');
+            const cartCounter = document.getElementById('gioHang');
+
+            cartCounter.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+
+            if (cart.length === 0) {
+                cartItemsContainer.style.display = 'none';
+                emptyCartMessage.style.display = 'block';
+                checkoutButton.style.display = 'none';
+                return;
+            }
+
+            cartItemsContainer.style.display = 'block';
+            emptyCartMessage.style.display = 'none';
+            checkoutButton.style.display = 'block';
+
+            cartItemsContainer.innerHTML = cart.map((item, index) => {
+                const product = products[item.id];
+                return `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <img src="${product.image}" alt="${product.name}" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="product-title">${product.name}</h5>
+                            <p class="product-details mb-0">Màu: ${product.color} | Size: ${product.size}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="price">${formatPrice(product.price)}</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" 
+                                class="form-control quantity-input" 
+                                value="${item.quantity}" 
+                                min="1" 
+                                onchange="updateQuantity(${index}, this.value)">
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <i class='bx bx-trash remove-item fs-4' onclick="removeItem(${index})"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+                cartItemsContainer.innerHTML += cartItemHTML;
+            });
+
+            updateTotals();
+        }
+
+        function updateQuantity(index, newQuantity) {
+            cart[index].quantity = parseInt(newQuantity);
+            saveCart();
+            updateCartDisplay();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            saveCart();
+            updateCartDisplay();
+        }
+
+        function addToCart(productId) {
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    quantity: 1
+                });
+            }
+            saveCart();
+            updateCartDisplay();
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateTotals() {
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += products[item.id].price * item.quantity;
+            });
+
+            const shipping = subtotal > 0 ? 30000 : 0;
+            const total = subtotal + shipping;
+
+            document.getElementById('subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('shipping').textContent = formatPrice(shipping);
+            document.getElementById('total').textContent = formatPrice(total);
+        }
+        document.addEventListener('DOMContentLoaded', updateCartDisplay);
+    </script>
+
+</body>
+
+</html>
